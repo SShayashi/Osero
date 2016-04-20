@@ -59,6 +59,11 @@
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
+		796172B11CC8366C00F77F60 /* MidEvaluator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796172A61CC8366C00F77F60 /* MidEvaluator.cpp */; };
+		796172B21CC8366C00F77F60 /* AI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796172A71CC8366C00F77F60 /* AI.cpp */; };
+		796172B31CC8366C00F77F60 /* Evaluator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796172AB1CC8366C00F77F60 /* Evaluator.cpp */; };
+		796172B41CC8366C00F77F60 /* Board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796172AC1CC8366C00F77F60 /* Board.cpp */; };
+		796172B51CC8366C00F77F60 /* BoardTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796172AD1CC8366C00F77F60 /* BoardTest.cpp */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -153,6 +158,16 @@
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		796172A61CC8366C00F77F60 /* MidEvaluator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MidEvaluator.cpp; path = ../OseroConsole/OseroConsole/MidEvaluator.cpp; sourceTree = "<group>"; };
+		796172A71CC8366C00F77F60 /* AI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AI.cpp; path = ../OseroConsole/OseroConsole/AI.cpp; sourceTree = "<group>"; };
+		796172A81CC8366C00F77F60 /* AI.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = AI.hpp; path = ../OseroConsole/OseroConsole/AI.hpp; sourceTree = "<group>"; };
+		796172A91CC8366C00F77F60 /* MidEvaluator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MidEvaluator.hpp; path = ../OseroConsole/OseroConsole/MidEvaluator.hpp; sourceTree = "<group>"; };
+		796172AA1CC8366C00F77F60 /* Evaluator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Evaluator.hpp; path = ../OseroConsole/OseroConsole/Evaluator.hpp; sourceTree = "<group>"; };
+		796172AB1CC8366C00F77F60 /* Evaluator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Evaluator.cpp; path = ../OseroConsole/OseroConsole/Evaluator.cpp; sourceTree = "<group>"; };
+		796172AC1CC8366C00F77F60 /* Board.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Board.cpp; path = ../OseroConsole/OseroConsole/Board.cpp; sourceTree = "<group>"; };
+		796172AD1CC8366C00F77F60 /* BoardTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BoardTest.cpp; path = ../OseroConsole/OseroConsole/BoardTest.cpp; sourceTree = "<group>"; };
+		796172AE1CC8366C00F77F60 /* Reversi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reversi.h; path = ../OseroConsole/OseroConsole/Reversi.h; sourceTree = "<group>"; };
+		796172AF1CC8366C00F77F60 /* Board.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Board.hpp; path = ../OseroConsole/OseroConsole/Board.hpp; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -357,8 +372,34 @@
 		790467491CC5BF3000D5AE3F /* API */ = {
 			isa = PBXGroup;
 			children = (
+				796172B81CC836A500F77F60 /* OseroSouce */,
+				796172B71CC8367B00F77F60 /* OseroHeader */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		796172B71CC8367B00F77F60 /* OseroHeader */ = {
+			isa = PBXGroup;
+			children = (
+				796172AE1CC8366C00F77F60 /* Reversi.h */,
+				796172AF1CC8366C00F77F60 /* Board.hpp */,
+				796172A81CC8366C00F77F60 /* AI.hpp */,
+				796172A91CC8366C00F77F60 /* MidEvaluator.hpp */,
+				796172AA1CC8366C00F77F60 /* Evaluator.hpp */,
+			);
+			name = OseroHeader;
+			sourceTree = "<group>";
+		};
+		796172B81CC836A500F77F60 /* OseroSouce */ = {
+			isa = PBXGroup;
+			children = (
+				796172A61CC8366C00F77F60 /* MidEvaluator.cpp */,
+				796172A71CC8366C00F77F60 /* AI.cpp */,
+				796172AB1CC8366C00F77F60 /* Evaluator.cpp */,
+				796172AC1CC8366C00F77F60 /* Board.cpp */,
+				796172AD1CC8366C00F77F60 /* BoardTest.cpp */,
+			);
+			name = OseroSouce;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,7 +447,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0720;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Osero" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -502,10 +543,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				796172B51CC8366C00F77F60 /* BoardTest.cpp in Sources */,
+				796172B41CC8366C00F77F60 /* Board.cpp in Sources */,
+				796172B11CC8366C00F77F60 /* MidEvaluator.cpp in Sources */,
+				796172B31CC8366C00F77F60 /* Evaluator.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				796172B21CC8366C00F77F60 /* AI.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,6 +612,7 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocos2dx.Osero;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
@@ -601,6 +648,7 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocos2dx.Osero;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
@@ -612,9 +660,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -637,6 +685,7 @@
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocos2dx.Osero;
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_MAC_BEGIN) $(_COCOS_HEADER_MAC_END)";
 			};
 			name = Debug;
@@ -645,9 +694,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = mac/Prefix.pch;
@@ -668,6 +717,7 @@
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocos2dx.Osero;
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_MAC_BEGIN) $(_COCOS_HEADER_MAC_END)";
 			};
 			name = Release;
@@ -678,6 +728,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
