@@ -64,6 +64,7 @@
 		796172B31CC8366C00F77F60 /* Evaluator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796172AB1CC8366C00F77F60 /* Evaluator.cpp */; };
 		796172B41CC8366C00F77F60 /* Board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796172AC1CC8366C00F77F60 /* Board.cpp */; };
 		796172B51CC8366C00F77F60 /* BoardTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796172AD1CC8366C00F77F60 /* BoardTest.cpp */; };
+		796172BF1CC83ECA00F77F60 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796172BD1CC83ECA00F77F60 /* GameScene.cpp */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -168,6 +169,8 @@
 		796172AD1CC8366C00F77F60 /* BoardTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BoardTest.cpp; path = ../OseroConsole/OseroConsole/BoardTest.cpp; sourceTree = "<group>"; };
 		796172AE1CC8366C00F77F60 /* Reversi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reversi.h; path = ../OseroConsole/OseroConsole/Reversi.h; sourceTree = "<group>"; };
 		796172AF1CC8366C00F77F60 /* Board.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Board.hpp; path = ../OseroConsole/OseroConsole/Board.hpp; sourceTree = "<group>"; };
+		796172BD1CC83ECA00F77F60 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
+		796172BE1CC83ECA00F77F60 /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameScene.hpp; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -316,6 +319,8 @@
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
+				796172BD1CC83ECA00F77F60 /* GameScene.cpp */,
+				796172BE1CC83ECA00F77F60 /* GameScene.hpp */,
 				790467491CC5BF3000D5AE3F /* API */,
 			);
 			name = Classes;
@@ -551,6 +556,7 @@
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				796172BF1CC83ECA00F77F60 /* GameScene.cpp in Sources */,
 				796172B21CC8366C00F77F60 /* AI.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 			);
