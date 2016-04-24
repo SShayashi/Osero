@@ -171,6 +171,7 @@
 		796172AF1CC8366C00F77F60 /* Board.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Board.hpp; path = ../OseroConsole/OseroConsole/Board.hpp; sourceTree = "<group>"; };
 		796172BD1CC83ECA00F77F60 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		796172BE1CC83ECA00F77F60 /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameScene.hpp; sourceTree = "<group>"; };
+		796172C01CCC3DB900F77F60 /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -321,7 +322,7 @@
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
 				796172BD1CC83ECA00F77F60 /* GameScene.cpp */,
 				796172BE1CC83ECA00F77F60 /* GameScene.hpp */,
-				790467491CC5BF3000D5AE3F /* API */,
+				790467491CC5BF3000D5AE3F /* Model */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -374,18 +375,19 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
-		790467491CC5BF3000D5AE3F /* API */ = {
+		790467491CC5BF3000D5AE3F /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				796172B81CC836A500F77F60 /* OseroSouce */,
 				796172B71CC8367B00F77F60 /* OseroHeader */,
 			);
-			name = API;
+			name = Model;
 			sourceTree = "<group>";
 		};
 		796172B71CC8367B00F77F60 /* OseroHeader */ = {
 			isa = PBXGroup;
 			children = (
+				796172C01CCC3DB900F77F60 /* Player.hpp */,
 				796172AE1CC8366C00F77F60 /* Reversi.h */,
 				796172AF1CC8366C00F77F60 /* Board.hpp */,
 				796172A81CC8366C00F77F60 /* AI.hpp */,

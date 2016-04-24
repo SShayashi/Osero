@@ -11,6 +11,8 @@
 #include <string>
 #include <memory>
 
+//元main
+
 int onPlay(){
     auto_ptr<Player> player[2];
     int current_player = 0;
