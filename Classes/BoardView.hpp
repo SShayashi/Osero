@@ -14,9 +14,12 @@
 
 class BoardView : public cocos2d::Layer
 {
+private:
+    CC_SYNTHESIZE(cocos2d::Vector<cocos2d::Sprite *>, _tiles, Tiles);
+    CC_SYNTHESIZE(cocos2d::Vector<cocos2d::Sprite *>, _discs, Discs);
 public:
     virtual bool init();
-    void setupBoard(Board &board);
+    void setupBoard();
     void reflectBoard(Board &board);
     // implement the "static create()" method manually
     CREATE_FUNC(BoardView);

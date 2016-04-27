@@ -20,12 +20,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLViewImpl::createWithRect("HelloCpp", Rect(0, 0, 960, 640));
+        glview = GLViewImpl::createWithRect("HelloCpp", Rect(0, 0, 640, 960));
         director->setOpenGLView(glview);
     }
     
     //画面サイズを固定
-    director->getOpenGLView()->setDesignResolutionSize(1136, 640, ResolutionPolicy::SHOW_ALL);
+    director->getOpenGLView()->setDesignResolutionSize(640, 1136, ResolutionPolicy::SHOW_ALL);
     director->setDisplayStats(true);
     director->setAnimationInterval(1.0 / 60);
     FileUtils::getInstance()->addSearchPath("res");
