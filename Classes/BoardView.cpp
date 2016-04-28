@@ -20,47 +20,48 @@ bool BoardView::init(){
     {
         return false;
     }
+    winSize = Director::getInstance()->getVisibleSize();
+    //背景
+    auto background = Sprite::create("backpaper.jpg");
+    background->setPosition(winSize/2);
+    this->setBackGround(background);
+    this->addChild(_background);
     
+    //ボード定義
     this->setupBoard();
 
     return true;
 }
 
-/** テーブルへの最初の
+/** テーブルへの最初の描画
  *
  */
 void BoardView::setupBoard(){
-    
-    Size winSize = Director::getInstance()->getVisibleSize();
     
     _tiles.clear();
     _discs.clear();
     //8*8のマスを作成
     for(int i = 0; i < 8; i++) {
         for(int j = 0; j < 8; j++){
-            Sprite* tile {Sprite::create("tile01.png")};
+            auto tile {BoardTile::create()};
             tile->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
             tile->setContentSize(Size(BOARD_TILE_WIDTH, BOARD_TILE_WIDTH));
             tile->setPosition(BOARD_POSITION_X + BOARD_TILE_WIDTH*i,
                               BOARD_POSITION_Y + BOARD_TILE_WIDTH*j);
 
-            this->addChild(tile);
-            _tiles.pushBack(tile);
             
             Sprite* disc {Sprite::create("k.png")};
-            disc->setAnchorPoint(Vec2::ANCHOR_MIDDLE);
             disc->setPosition(tile->getContentSize()/2);
-            disc->setContentSize(Size(100,100));
             tile->addChild(disc,1000);
-            _discs.pushBack(disc);
+            this->addChild(tile);
+            _tiles.pushBack(tile);
+//            _discs.pushBack(disc);
             
         }
     }
-    
-    
     return ;
 }
 
-void BoardView::reflectBoard(Board &board){
+void BoardView::update(Board &board){
     return ;
 }
