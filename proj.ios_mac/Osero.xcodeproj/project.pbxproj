@@ -390,8 +390,6 @@
 			isa = PBXGroup;
 			children = (
 				79302DEE1CD12755009D69C6 /* Contoller */,
-				796172BD1CC83ECA00F77F60 /* GameScene.cpp */,
-				796172BE1CC83ECA00F77F60 /* GameScene.hpp */,
 				796172C11CCC554F00F77F60 /* View */,
 				790467491CC5BF3000D5AE3F /* Model */,
 			);
@@ -401,6 +399,8 @@
 		79302DEE1CD12755009D69C6 /* Contoller */ = {
 			isa = PBXGroup;
 			children = (
+				796172BD1CC83ECA00F77F60 /* GameScene.cpp */,
+				796172BE1CC83ECA00F77F60 /* GameScene.hpp */,
 			);
 			name = Contoller;
 			sourceTree = "<group>";

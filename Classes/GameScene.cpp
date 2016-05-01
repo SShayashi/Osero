@@ -12,8 +12,34 @@
 #include <memory>
 
 //元main
+cocos2d::Scene* GameScene::createScene()
+{
+    auto scene = cocos2d::Scene::create();
+    auto layer = GameScene::create();
+    scene->addChild(layer);
+    return scene;
+}
 
-int onPlay(){
+// on "init" you need to initialize your instance
+bool GameScene::init()
+{
+    if ( !Layer::init() )
+    {
+        return false;
+    }
+    
+    //viewの初期設定
+    auto boardlayer = BoardView::create();
+    BoardLayer = boardlayer;
+    this->addChild(BoardLayer);
+    
+    
+    return true;
+}
+
+
+
+int GameScene::onPlay(){
     auto_ptr<Player> player[2];
     int current_player = 0;
     ConsoleBoard board;

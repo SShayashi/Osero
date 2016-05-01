@@ -17,8 +17,28 @@
 #include "Board.hpp"
 #include "Player.hpp"
 #include "AI.hpp"
+#include "BoardView.hpp"
 
 using namespace std;
+
+
+class GameScene : public cocos2d::Layer
+{
+private:
+    auto_ptr<Player> player[2];
+    int current_player;
+
+    //Model
+    Board board;
+    //View
+    BoardView *BoardLayer {};
+public:
+    static cocos2d::Scene* createScene();
+    virtual bool init();
+    int onPlay();
+    CREATE_FUNC(GameScene);
+};
+
 
 class ConsoleBoard : public Board
 {
