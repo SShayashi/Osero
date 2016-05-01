@@ -3,9 +3,14 @@
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
+        <Image Name="backpaper01.png" />
+        <Image Name="backpaper02.png" />
+        <Image Name="backpaper03.png" />
         <Image Name="HelloWorld.png" />
         <Project Name="MainScene.csd" Type="Scene" />
+        <Image Name="Reversi-logo (1).png" />
         <Image Name="table.jpg" />
+        <Project Name="TitleLayer.csd" Type="Layer" />
       </RootFolder>
     </Group>
   </SolutionFolder>
