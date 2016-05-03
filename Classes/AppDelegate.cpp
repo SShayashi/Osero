@@ -1,5 +1,5 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+#include "TitleScene.hpp"
 
 USING_NS_CC;
 
@@ -20,7 +20,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLViewImpl::createWithRect("HelloCpp", Rect(0, 0, 640, 960));
+        glview = GLViewImpl::createWithRect("ReversiCpp", Rect(0, 0, 640, 960));
         director->setOpenGLView(glview);
     }
     
@@ -29,7 +29,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setDisplayStats(true);
     director->setAnimationInterval(1.0 / 60);
     FileUtils::getInstance()->addSearchPath("res");
-    auto scene = HelloWorld::createScene();
+    auto scene = Title::createScene();
     director->runWithScene(scene);
 
     return true;
