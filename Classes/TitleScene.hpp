@@ -2,6 +2,7 @@
 #define __Title_SCENE_H__
 
 #include "cocos2d.h"
+#include "Utility.hpp"
 
 class Title : public cocos2d::Layer
 {
