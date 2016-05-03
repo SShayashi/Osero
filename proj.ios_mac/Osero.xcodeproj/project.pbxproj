@@ -59,6 +59,7 @@
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
+		7909BCAC1CD8694200F20635 /* Utility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7909BCAA1CD8694200F20635 /* Utility.cpp */; };
 		796172B11CC8366C00F77F60 /* MidEvaluator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796172A61CC8366C00F77F60 /* MidEvaluator.cpp */; };
 		796172B21CC8366C00F77F60 /* AI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796172A71CC8366C00F77F60 /* AI.cpp */; };
 		796172B31CC8366C00F77F60 /* Evaluator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796172AB1CC8366C00F77F60 /* Evaluator.cpp */; };
@@ -160,6 +161,8 @@
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		7909BCAA1CD8694200F20635 /* Utility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Utility.cpp; sourceTree = "<group>"; };
+		7909BCAB1CD8694200F20635 /* Utility.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Utility.hpp; sourceTree = "<group>"; };
 		796172A61CC8366C00F77F60 /* MidEvaluator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MidEvaluator.cpp; path = ../OseroConsole/OseroConsole/MidEvaluator.cpp; sourceTree = "<group>"; };
 		796172A71CC8366C00F77F60 /* AI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AI.cpp; path = ../OseroConsole/OseroConsole/AI.cpp; sourceTree = "<group>"; };
 		796172A81CC8366C00F77F60 /* AI.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = AI.hpp; path = ../OseroConsole/OseroConsole/AI.hpp; sourceTree = "<group>"; };
@@ -400,6 +403,8 @@
 				79302DEE1CD12755009D69C6 /* Contoller */,
 				796172C11CCC554F00F77F60 /* View */,
 				790467491CC5BF3000D5AE3F /* Model */,
+				7909BCAA1CD8694200F20635 /* Utility.cpp */,
+				7909BCAB1CD8694200F20635 /* Utility.hpp */,
 			);
 			name = GameScene;
 			sourceTree = "<group>";
@@ -597,6 +602,7 @@
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* TitleScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				7909BCAC1CD8694200F20635 /* Utility.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				796172BF1CC83ECA00F77F60 /* GameScene.cpp in Sources */,
 				796172B21CC8366C00F77F60 /* AI.cpp in Sources */,
