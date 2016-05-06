@@ -21,10 +21,17 @@ private:
 public:
     //ゲーム内で利用する共用体
     
-    //キャラの種類
+    //ゲームの種類
     enum class GAME_MODE{
         SINGLE,
         MULTI,
+        COUNT
+    };
+    
+    //先攻後攻
+    enum class PRECEDING{
+        BLACK,
+        WHITE,
         COUNT
     };
     
@@ -35,6 +42,7 @@ public:
     
     // メソッドと変数
     CC_SYNTHESIZE(GAME_MODE, _gamemode, GameMode);
+    CC_SYNTHESIZE(PRECEDING, _preceding, Preceding);
 };
 
 #endif /* Utility_hpp */

@@ -31,4 +31,5 @@ Utility* Utility::getInstance()
 void Utility::initialize()
 {
     _gamemode = GAME_MODE::SINGLE;
+    _preceding= PRECEDING::BLACK;
 }

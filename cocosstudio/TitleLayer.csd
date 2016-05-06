@@ -58,6 +58,21 @@
             <FileData Type="Normal" Path="Reversi-logo (1).png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
+          <AbstractNodeData Name="preceding" ActionTag="394733074" Tag="9" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="280.0000" RightMargin="280.0000" TopMargin="408.0560" BottomMargin="691.9440" TouchEnable="True" FontSize="14" ButtonText="黒が先行" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+            <Size X="80.0000" Y="36.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="320.0000" Y="709.9440" />
+            <Scale ScaleX="1.8612" ScaleY="2.7587" />
+            <CColor A="255" R="104" G="104" B="104" />
+            <PrePosition X="0.5000" Y="0.6250" />
+            <PreSize X="0.1250" Y="0.0317" />
+            <TextColor A="255" R="0" G="0" B="0" />
+            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
+            <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
+            <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>
