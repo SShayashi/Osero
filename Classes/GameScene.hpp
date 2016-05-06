@@ -51,7 +51,7 @@ public:
             cout << "  " << y;
             for(int x=1 ; x<=8; x++)
             {
-                switch (getColor(Point(x,y)))
+                switch (getColor(Reversi::Point(x,y)))
                 {
                     case BLACK:
                         cout << "●";

@@ -12,6 +12,7 @@
 #include "AI.hpp"
 
 using namespace std;
+using namespace Reversi;
 
 class Player
 {
@@ -54,9 +55,9 @@ public:
             if(in == "U" || in == "u") throw UndoException();
             if(in == "X" || in == "x") throw ExitException();
             
-            Point p;
+            Reversi::Point p;
             try {
-                p = Point(in);
+                p = Reversi::Point(in);
             } catch (invalid_argument& e) {
                 cout << "正しい形式で入力してください" << endl;
                 continue;
