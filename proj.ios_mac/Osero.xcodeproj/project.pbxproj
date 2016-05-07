@@ -67,6 +67,7 @@
 		796172B51CC8366C00F77F60 /* BoardTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796172AD1CC8366C00F77F60 /* BoardTest.cpp */; };
 		796172BF1CC83ECA00F77F60 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796172BD1CC83ECA00F77F60 /* GameScene.cpp */; };
 		796172C31CCC55BE00F77F60 /* BoardView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 796172C21CCC55BE00F77F60 /* BoardView.cpp */; };
+		797DBAA51CDD98D90063CDA8 /* GUIcomponents.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 797DBAA31CDD98D80063CDA8 /* GUIcomponents.cpp */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -178,7 +179,8 @@
 		796172C01CCC3DB900F77F60 /* Player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
 		796172C21CCC55BE00F77F60 /* BoardView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoardView.cpp; sourceTree = "<group>"; };
 		796172C41CCC55D600F77F60 /* BoardView.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BoardView.hpp; sourceTree = "<group>"; };
-		799D50E41CD0E56F00DFA010 /* GUIcomponets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GUIcomponets.hpp; sourceTree = "<group>"; };
+		797DBAA31CDD98D80063CDA8 /* GUIcomponents.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUIcomponents.cpp; sourceTree = "<group>"; };
+		797DBAA41CDD98D90063CDA8 /* GUIcomponents.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GUIcomponents.hpp; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -448,7 +450,8 @@
 			children = (
 				796172C21CCC55BE00F77F60 /* BoardView.cpp */,
 				796172C41CCC55D600F77F60 /* BoardView.hpp */,
-				799D50E41CD0E56F00DFA010 /* GUIcomponets.hpp */,
+				797DBAA31CDD98D80063CDA8 /* GUIcomponents.cpp */,
+				797DBAA41CDD98D90063CDA8 /* GUIcomponents.hpp */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				796172B51CC8366C00F77F60 /* BoardTest.cpp in Sources */,
+				797DBAA51CDD98D90063CDA8 /* GUIcomponents.cpp in Sources */,
 				796172C31CCC55BE00F77F60 /* BoardView.cpp in Sources */,
 				796172B41CC8366C00F77F60 /* Board.cpp in Sources */,
 				796172B11CC8366C00F77F60 /* MidEvaluator.cpp in Sources */,
