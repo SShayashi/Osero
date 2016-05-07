@@ -30,8 +30,8 @@ public:
     
     //先攻後攻
     enum class PRECEDING{
-        BLACK,
-        WHITE,
+        HUMAN,
+        CPU,
         COUNT
     };
     

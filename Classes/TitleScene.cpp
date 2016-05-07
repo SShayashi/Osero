@@ -38,7 +38,7 @@ bool Title::init()
     
     auto precedingBtn  = titlelayer->getChildByName<ui::Button*>("preceding");
     //先行，後攻ボタンの初期値
-    precedingBtn->setTitleText("黒が先行");
+    precedingBtn->setTitleText("人が先行");
     precedingBtn->setTitleColor(Color3B::BLACK);
     precedingBtn->setColor(Color3B::GRAY);
     setPrecedingBtn(precedingBtn);
@@ -70,13 +70,13 @@ bool Title::init()
             if(getPrecedingBtn()->getColor() == Color3B::WHITE)
             {
                 this->_precedingBtn->setColor(Color3B::GRAY);
-                this->_precedingBtn->setTitleText("黒が先行");
-                Utility::Utility::getInstance()->setPreceding(Utility::PRECEDING::BLACK);
+                this->_precedingBtn->setTitleText("人が先行");
+                Utility::Utility::getInstance()->setPreceding(Utility::PRECEDING::HUMAN);
                 
             }else{
                 this->_precedingBtn->setColor(Color3B::WHITE);
-                this->_precedingBtn->setTitleText("白が先行");
-                Utility::Utility::getInstance()->setPreceding(Utility::PRECEDING::WHITE);
+                this->_precedingBtn->setTitleText("CPが先行");
+                Utility::Utility::getInstance()->setPreceding(Utility::PRECEDING::CPU);
             }
     });
     
