@@ -21,7 +21,6 @@
 
 using namespace std;
 
-
 class GameScene : public cocos2d::Layer
 {
 private:
@@ -31,7 +30,7 @@ private:
     //Model
     Board *_board;
     //View
-    BoardView *_boardLayer {};
+    BoardView *_boardViewLayer {};
     
     GameScene();
     virtual ~GameScene();
@@ -41,37 +40,4 @@ public:
     int onPlay();
     CREATE_FUNC(GameScene);
 };
-
-
-class ConsoleBoard : public Board
-{
-public:
-    void print()
-    {
-        cout << "  abcdefgh " << endl;
-        for(int y=1 ; y<=8 ; y++)
-        {
-            cout << "  " << y;
-            for(int x=1 ; x<=8; x++)
-            {
-                switch (getColor(Reversi::Point(x,y)))
-                {
-                    case BLACK:
-                        cout << "●";
-                        break;
-                    case WHITE:
-                        cout << "○";
-
-                    default:
-                        cout << "  ";
-                        break;
-                }
-            }
-            cout << endl;
-        }
-            
-    }
-};
-
-
 #endif /* GameScene_hpp */

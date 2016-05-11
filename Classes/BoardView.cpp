@@ -48,18 +48,12 @@ void BoardView::update(const Board &board){
     //8*8のマスを作成
     for(int y = 1; y <= 8; y++) {
         for(int x = 1; x <= 8; x++){
-            
             auto tile {BoardTile::create()};
-            
             auto pos = BoardTile::convertToStageSpace(Vec2(x,y));
             tile->setPosition(_boardpos - tile->getContentSize()  + pos );
             this->addChild(tile);
             tile->setColor(board.getColor(Reversi::Point(x,y)));
             _tiles.pushBack(tile);
-//            tile->setContentSize(Size(BOARD_TILE_WIDTH, BOARD_TILE_WIDTH));
-//            tile->setPosition(BOARD_POSITION_X + BOARD_TILE_WIDTH*x,
-//                              BOARD_POSITION_Y + BOARD_TILE_WIDTH*y);
-            
         }
     }
     return ;

@@ -15,12 +15,12 @@
 GameScene::GameScene()
 {
     _board      = nullptr;
-    _boardLayer = nullptr;
+    _boardViewLayer = nullptr;
 }
 GameScene::~GameScene()
 {
     delete _board;
-    CC_SAFE_RELEASE_NULL(_boardLayer);
+    CC_SAFE_RELEASE_NULL(_boardViewLayer);
 }
 
 //元main
@@ -59,8 +59,8 @@ bool GameScene::init()
     
     //viewの初期設定
     auto boardlayer = BoardView::create();
-    _boardLayer = boardlayer;
-    this->addChild(_boardLayer);
+    _boardViewLayer = boardlayer;
+    this->addChild(_boardViewLayer);
     
     //ゲームのメインループへ
     this->onPlay();
@@ -73,11 +73,11 @@ bool GameScene::init()
 int GameScene::onPlay(){
     
     _current_player = 0;
-    _boardLayer->update(*_board);
+    _boardViewLayer->update(*_board);
 //    
 //    while (true) {
 //        //ボートへ反映
-//        _boardLayer->update(*_board);
+//        _boardViewLayer->update(*_board);
 //        
 //        try {
 //            player[_current_player]->onTurn(*_board);
