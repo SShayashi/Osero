@@ -57,6 +57,7 @@ public:
 private:
     CC_SYNTHESIZE_RETAIN(Sprite*, _disc, Disc);
     CC_SYNTHESIZE(BOARD_STATE, _boardState, BoardState);
+    CC_SYNTHESIZE(Reversi::Point, _boardPoint, BoardPoint);
 };
 
 

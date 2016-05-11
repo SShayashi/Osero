@@ -34,7 +34,11 @@ bool BoardView::init(){
     auto homeBtn = boardLayer->getChildByName<ui::Button*>("home");
     auto undoBtn  = boardLayer->getChildByName<ui::Button*>("undo");
     auto tableNode = boardLayer->getChildByName("table");
-    _boardpos = tableNode->getPosition();
+    //位置をタイル一枚分下にずらす
+    _tableNode = tableNode;
+    _tableNode->setPosition(_tableNode->getPosition() - Vec2(BOARD_TILE_WIDTH,BOARD_TILE_WIDTH));
+    _tableNode->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
+    
 
 
     return true;
@@ -50,8 +54,9 @@ void BoardView::update(const Board &board){
         for(int x = 1; x <= 8; x++){
             auto tile {BoardTile::create()};
             auto pos = BoardTile::convertToStageSpace(Vec2(x,y));
-            tile->setPosition(_boardpos - tile->getContentSize()  + pos );
-            this->addChild(tile);
+            tile->setPosition(pos);
+            tile->setBoardPoint(Reversi::Point(x,y));
+            _tableNode->addChild(tile);
             tile->setColor(board.getColor(Reversi::Point(x,y)));
             _tiles.pushBack(tile);
         }
