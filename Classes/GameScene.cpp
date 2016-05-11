@@ -73,8 +73,9 @@ bool GameScene::init()
             auto rerativePos = _boardViewLayer->getTableNode()->convertToNodeSpace(touchPoint);
             if(tile->getBoundingBox().containsPoint(rerativePos))
             {
-                auto tilep = tile->getBoardPoint();
-                CCLOG("tilep: x:%d y:%d",tilep.x,tilep.y);
+                auto p = tile->getBoardPoint();
+                CCLOG("tilep: x:%d y:%d",p.x,p.y);
+                this->putDisc(p);
                 return true;
             }
         }
@@ -85,7 +86,7 @@ bool GameScene::init()
     
     
     //ゲームのメインループへ
-    this->onPlay();
+    this->_boardViewLayer->update(*_board);
     
     return true;
 }
@@ -94,8 +95,8 @@ bool GameScene::init()
 
 int GameScene::onPlay(){
     
-    _current_player = 0;
-    _boardViewLayer->update(*_board);
+//    _current_player = 0;
+//    _boardViewLayer->update(*_board);
 //    
 //    while (true) {
 //        //ボートへ反映
@@ -130,5 +131,37 @@ int GameScene::onPlay(){
 //        //プレイヤーの交代
 //        _current_player = ++_current_player % 2;
 //    }
+}
+
+int GameScene::putDisc(Reversi::Point p)
+{
+    try {
+        player[_current_player]->onTurn(*_board,p);
+    } catch (UndoException& e)
+    {
+        do
+        {
+            _board->undo();
+            _board->undo();
+        }while (_board->getMovablePos().empty());
+        return 0;
+    }
+    catch(ExitException& e)
+    {
+        return 0;
+    }
+    catch(GameOverException& e)
+    {
+        cout << "game finish " << endl;
+        cout << "黒石" << _board->countDisc(BLACK) << "  ";
+        cout << "白石" << _board->countDisc(WHITE) << endl;
+        
+        return 0;
+    }
     
+    //プレイヤーの交代
+    this->_boardViewLayer->update(*_board);
+    _current_player = ++_current_player % 2;
+
+    return 0;
 }

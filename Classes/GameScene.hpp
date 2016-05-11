@@ -37,7 +37,9 @@ private:
 public:
     static cocos2d::Scene* createScene();
     virtual bool init();
+    
     int onPlay();
+    int putDisc(Reversi::Point p);
     CREATE_FUNC(GameScene);
 };
 #endif /* GameScene_hpp */
