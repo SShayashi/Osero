@@ -37,7 +37,6 @@ bool BoardView::init(){
     //位置をタイル一枚分下にずらす
     _tableNode = tableNode;
     _tableNode->setPosition(_tableNode->getPosition() - Vec2(BOARD_TILE_WIDTH,BOARD_TILE_WIDTH));
-    _tableNode->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
     
 
 

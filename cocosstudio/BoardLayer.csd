@@ -17,17 +17,6 @@
             <FileData Type="Normal" Path="Res/backpaper.jpg" Plist="" />
             <BlendFunc Src="770" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="table" ActionTag="1525519054" Tag="5" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="20.0000" RightMargin="20.0000" TopMargin="268.0000" BottomMargin="268.0000" ctype="SpriteObjectData">
-            <Size X="600.0000" Y="600.0000" />
-            <AnchorPoint />
-            <Position X="20.0000" Y="268.0000" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0313" Y="0.2359" />
-            <PreSize X="0.9375" Y="0.5282" />
-            <FileData Type="Normal" Path="Res/table.jpg" Plist="" />
-            <BlendFunc Src="770" Dst="771" />
-          </AbstractNodeData>
           <AbstractNodeData Name="whiteText" ActionTag="-2003162500" Tag="8" IconVisible="False" LeftMargin="130.0000" RightMargin="450.0000" TopMargin="924.5000" BottomMargin="188.5000" FontSize="20" LabelText="白の数" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
             <Size X="60.0000" Y="23.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
@@ -90,6 +79,15 @@
             <NormalFileData Type="Normal" Path="Res/undo.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="table" ActionTag="-1047493855" Tag="10" IconVisible="True" LeftMargin="20.0000" RightMargin="620.0000" TopMargin="886.0000" BottomMargin="250.0000" ctype="SingleNodeObjectData">
+            <Size X="0.0000" Y="0.0000" />
+            <AnchorPoint />
+            <Position X="20.0000" Y="250.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.0313" Y="0.2201" />
+            <PreSize X="0.0000" Y="0.0000" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

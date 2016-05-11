@@ -21,13 +21,6 @@ bool BoardTile::init()
 }
 
 
-static Vec2 convertToArraySpace(const cocos2d::Vec2& stagePosition)
-{
-    auto x = floor(stagePosition.x / BoardTile::getSize());
-    auto y = floor(stagePosition.y / BoardTile::getSize());
-    return std::move(Vec2(x,y));
-}
-
 void BoardTile::setColor(Color color)
 {
     switch (color) {

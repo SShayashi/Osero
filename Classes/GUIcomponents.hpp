@@ -33,7 +33,13 @@ public:
      *
      *
      */
-    static cocos2d::Vec2 convertToArraySpace(const cocos2d::Vec2& stagePosition);
+    static cocos2d::Vec2 convertToArraySpace(const cocos2d::Vec2& stagePosition)
+    {
+        auto x = floor(stagePosition.x / BoardTile::getSize());
+        auto y = floor(stagePosition.y / BoardTile::getSize());
+        return std::move(cocos2d::Vec2(x,y));
+    }
+
     
     /** 配列中の座標をステージ上の座標に変換する
      *

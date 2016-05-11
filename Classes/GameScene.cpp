@@ -62,6 +62,28 @@ bool GameScene::init()
     _boardViewLayer = boardlayer;
     this->addChild(_boardViewLayer);
     
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->onTouchBegan = [this](Touch* touch, Event* event){
+        cocos2d::Vec2 touchPoint = Vec2(touch->getLocation().x, touch->getLocation().y);
+
+        auto itr = this->_boardViewLayer->getTiles();
+        for (const auto& tile : itr)
+        {
+            //相対位置を取得する
+            auto rerativePos = _boardViewLayer->getTableNode()->convertToNodeSpace(touchPoint);
+            if(tile->getBoundingBox().containsPoint(rerativePos))
+            {
+                auto tilep = tile->getBoardPoint();
+                CCLOG("tilep: x:%d y:%d",tilep.x,tilep.y);
+                return true;
+            }
+        }
+        return false;
+    };
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
+
+    
+    
     //ゲームのメインループへ
     this->onPlay();
     
