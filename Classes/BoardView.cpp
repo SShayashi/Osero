@@ -6,6 +6,11 @@
 //
 //
 #include "BoardView.hpp"
+#include "Reversi.h"
+#include "Board.hpp"
+#include "cocostudio/CocoStudio.h"
+#include "ui/CocosGUI.h"
+#include "GUIcomponents.hpp"
 
 #define ORIGINAL_TILE_WIDTH 128
 
@@ -22,46 +27,40 @@ bool BoardView::init(){
     }
     winSize = Director::getInstance()->getVisibleSize();
     //背景
-    auto background = Sprite::create("backpaper.jpg");
-    background->setPosition(winSize/2);
-    this->setBackGround(background);
-    this->addChild(_background);
-    
-    //ボード定義
-    this->setupBoard();
+    // titleLayerの読み込み
+    auto boardLayer = CSLoader::getInstance()->createNode("BoardLayer.csb");
+    this->addChild(boardLayer);
+
+    auto homeBtn = boardLayer->getChildByName<ui::Button*>("home");
+    auto undoBtn  = boardLayer->getChildByName<ui::Button*>("undo");
+    auto tableNode = boardLayer->getChildByName("table");
+    _boardpos = tableNode->getPosition();
+
 
     return true;
 }
 
-/** テーブルへの最初の描画
+/** Modelを参照して画面へ描画
  *
  */
-void BoardView::setupBoard(){
+void BoardView::update(const Board &board){
     
-    _tiles.clear();
-    _discs.clear();
     //8*8のマスを作成
-    for(int i = 0; i < 8; i++) {
-        for(int j = 0; j < 8; j++){
-            auto tile {BoardTile::create()};
-            tile->setAnchorPoint(Vec2::ANCHOR_BOTTOM_LEFT);
-            tile->setContentSize(Size(BOARD_TILE_WIDTH, BOARD_TILE_WIDTH));
-            tile->setPosition(BOARD_POSITION_X + BOARD_TILE_WIDTH*i,
-                              BOARD_POSITION_Y + BOARD_TILE_WIDTH*j);
-
+    for(int y = 1; y <= 8; y++) {
+        for(int x = 1; x <= 8; x++){
             
-            Sprite* disc {Sprite::create("k.png")};
-            disc->setPosition(tile->getContentSize()/2);
-            tile->addChild(disc,1000);
+            auto tile {BoardTile::create()};
+            
+            auto pos = BoardTile::convertToStageSpace(Vec2(x,y));
+            tile->setPosition(_boardpos - tile->getContentSize()  + pos );
             this->addChild(tile);
+            tile->setColor(board.getColor(Reversi::Point(x,y)));
             _tiles.pushBack(tile);
-//            _discs.pushBack(disc);
+//            tile->setContentSize(Size(BOARD_TILE_WIDTH, BOARD_TILE_WIDTH));
+//            tile->setPosition(BOARD_POSITION_X + BOARD_TILE_WIDTH*x,
+//                              BOARD_POSITION_Y + BOARD_TILE_WIDTH*y);
             
         }
     }
-    return ;
-}
-
-void BoardView::update(Board &board){
     return ;
 }

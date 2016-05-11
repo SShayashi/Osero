@@ -14,7 +14,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.4893" Y="0.5124" />
             <PreSize X="0.3547" Y="0.2993" />
-            <FileData Type="Normal" Path="backpaper03.png" Plist="" />
+            <FileData Type="Normal" Path="Res/backpaper03.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="singlePlay" ActionTag="403552129" Tag="4" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="280.0000" RightMargin="280.0000" TopMargin="669.1644" BottomMargin="430.8356" TouchEnable="True" FontSize="14" ButtonText="１人プレイ" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
@@ -55,7 +55,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.4942" Y="0.8213" />
             <PreSize X="0.6250" Y="0.3275" />
-            <FileData Type="Normal" Path="Reversi-logo (1).png" Plist="" />
+            <FileData Type="Normal" Path="Res/Reversi-logo (1).png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="preceding" ActionTag="394733074" Tag="9" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="280.0000" RightMargin="280.0000" TopMargin="408.0560" BottomMargin="691.9440" TouchEnable="True" FontSize="14" ButtonText="黒が先行" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">

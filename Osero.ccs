@@ -3,14 +3,19 @@
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
-        <Image Name="backpaper01.png" />
-        <Image Name="backpaper02.png" />
-        <Image Name="backpaper03.png" />
-        <Image Name="HelloWorld.png" />
-        <Project Name="MainScene.csd" Type="Scene" />
-        <Image Name="Reversi-logo (1).png" />
-        <Image Name="table.jpg" />
+        <Project Name="BoardLayer.csd" Type="Layer" />
         <Project Name="TitleLayer.csd" Type="Layer" />
+        <Folder Name="Res">
+          <Image Name="backpaper.jpg" />
+          <Image Name="backpaper01.png" />
+          <Image Name="backpaper02.png" />
+          <Image Name="backpaper03.png" />
+          <Image Name="HelloWorld.png" />
+          <Image Name="pink-house-hi.png" />
+          <Image Name="Reversi-logo (1).png" />
+          <Image Name="table.jpg" />
+          <Image Name="undo.png" />
+        </Folder>
       </RootFolder>
     </Group>
   </SolutionFolder>

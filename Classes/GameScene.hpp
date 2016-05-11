@@ -26,12 +26,15 @@ class GameScene : public cocos2d::Layer
 {
 private:
     auto_ptr<Player> player[2];
-    int current_player;
+    int _current_player;
 
     //Model
-    Board board;
+    Board *_board;
     //View
-    BoardView *BoardLayer {};
+    BoardView *_boardLayer {};
+    
+    GameScene();
+    virtual ~GameScene();
 public:
     static cocos2d::Scene* createScene();
     virtual bool init();

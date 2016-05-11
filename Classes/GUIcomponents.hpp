@@ -11,11 +11,10 @@
 
 #include "cocos2d.h"
 #include "Reversi.h"
-
+#include "Board.hpp"
+const int TILE_SIZE = 75;
 class BoardTile : public cocos2d::Sprite
 {
-private:
-    Sprite* _discimage;
 public:
     
     enum class BOARD_STATE{
@@ -26,8 +25,38 @@ public:
         COUNT
     };
     
+    static int getSize(){
+        return TILE_SIZE;
+    }
+    
+    /** ステージ上の座標を配列中の位置に変換
+     *
+     *
+     */
+    static cocos2d::Vec2 convertToArraySpace(const cocos2d::Vec2& stagePosition);
+    
+    /** 配列中の座標をステージ上の座標に変換する
+     *
+     *
+     */
+//    static cocos2d::Vec2 convertToStageSpace(const cocos2d::Vec2& arrayPosition);
+    
+    static cocos2d::Vec2 convertToStageSpace(const cocos2d::Vec2& arrayPosition)
+    {
+        return std::move((arrayPosition + cocos2d::Vec2::ONE * 0.5) * BoardTile::getSize());
+    }
+
+    
+    /** Reversiの色からそれにあったオセロを貼り付ける
+     *
+     */
+    void setColor(const Color color);
+    
     CREATE_FUNC(BoardTile);
     virtual bool init();
+private:
+    CC_SYNTHESIZE_RETAIN(Sprite*, _disc, Disc);
+    CC_SYNTHESIZE(BOARD_STATE, _boardState, BoardState);
 };
 
 

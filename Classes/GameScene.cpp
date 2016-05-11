@@ -7,9 +7,21 @@
 //
 
 #include "GameScene.hpp"
+#include "Utility.hpp"
 #include <iostream>
 #include <string>
 #include <memory>
+
+GameScene::GameScene()
+{
+    _board      = nullptr;
+    _boardLayer = nullptr;
+}
+GameScene::~GameScene()
+{
+    delete _board;
+    CC_SAFE_RELEASE_NULL(_boardLayer);
+}
 
 //元main
 cocos2d::Scene* GameScene::createScene()
@@ -28,11 +40,30 @@ bool GameScene::init()
         return false;
     }
     
+    //Modelの初期化
+    _board = new Board();
+    
+    //先手・後手の設定
+    if(Utility::getInstance()->getGameMode() == Utility::GAME_MODE::MULTI)
+    {
+        player[0].reset(new HumanPlayer());
+        player[1].reset(new HumanPlayer());
+    }else if(Utility::getInstance()->getPreceding() == Utility::PRECEDING::HUMAN) {
+        player[0].reset(new HumanPlayer());
+        player[1].reset(new AIPlayer());
+    }else{
+        player[0].reset(new AIPlayer());
+        player[1].reset(new HumanPlayer());
+    }
+    
+    
     //viewの初期設定
     auto boardlayer = BoardView::create();
-    BoardLayer = boardlayer;
-    this->addChild(BoardLayer);
+    _boardLayer = boardlayer;
+    this->addChild(_boardLayer);
     
+    //ゲームのメインループへ
+    this->onPlay();
     
     return true;
 }
@@ -40,55 +71,42 @@ bool GameScene::init()
 
 
 int GameScene::onPlay(){
-    auto_ptr<Player> player[2];
-    int current_player = 0;
-    ConsoleBoard board;
-    bool reverse = false;
     
-    //先手・後手の設定
-    if(reverse)
-    {
-        player[1].reset(new HumanPlayer());
-        player[0].reset(new AIPlayer());
-    }
-    else
-    {
-        player[1].reset(new AIPlayer());
-        player[0].reset(new HumanPlayer());
-
-    }
-    
-    while (true) {
-        board.print();
-        
-        try {
-            player[current_player]->onTurn(board);
-        } catch (UndoException& e)
-        {
-            do
-            {
-                board.undo();
-                board.undo();
-            }while (board.getMovablePos().empty());
-            {
-                continue;
-            }
-        }
-        catch(ExitException& e)
-        {
-            return 0;
-        }
-        catch(GameOverException& e)
-        {
-            cout << "game finish " << endl;
-            cout << "黒石" << board.countDisc(BLACK) << "  ";
-            cout << "白石" << board.countDisc(WHITE) << endl;
-            
-            return 0;
-        }
-        
-        //プレイヤーの交代
-        current_player = ++current_player % 2;
-    }
+    _current_player = 0;
+    _boardLayer->update(*_board);
+//    
+//    while (true) {
+//        //ボートへ反映
+//        _boardLayer->update(*_board);
+//        
+//        try {
+//            player[_current_player]->onTurn(*_board);
+//        } catch (UndoException& e)
+//        {
+//            do
+//            {
+//                _board->undo();
+//                _board->undo();
+//            }while (_board->getMovablePos().empty());
+//            {
+//                continue;
+//            }
+//        }
+//        catch(ExitException& e)
+//        {
+//            return 0;
+//        }
+//        catch(GameOverException& e)
+//        {
+//            cout << "game finish " << endl;
+//            cout << "黒石" << _board->countDisc(BLACK) << "  ";
+//            cout << "白石" << _board->countDisc(WHITE) << endl;
+//            
+//            return 0;
+//        }
+//        
+//        //プレイヤーの交代
+//        _current_player = ++_current_player % 2;
+//    }
     
 }
