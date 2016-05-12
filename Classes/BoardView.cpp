@@ -74,6 +74,12 @@ bool BoardView::init(){
         }
     });
     
+    undoBtn->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
+        if (type == ui::Widget::TouchEventType::ENDED) {
+            Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("undo");
+        }
+    });
+    
     
     this->setBlackDiscNumLabel(blackDiscNumLabel);
     this->setWhiteDiscNumLabel(whiteDiscNumLabel);
@@ -188,4 +194,17 @@ void BoardView::update(const Board &board)
     
 
     return ;
+}
+
+void BoardView::gameOver(const Board &board)
+{
+    if(board.countDisc(BLACK) > board.countDisc(WHITE))
+        _boardLayer->getChildByName<ui::Text*>("turn")->setString("黒の勝利");
+    else if (board.countDisc(BLACK) < board.countDisc(WHITE))
+        _boardLayer->getChildByName<ui::Text*>("turn")->setString("白の勝利");
+    else
+        _boardLayer->getChildByName<ui::Text*>("turn")->setString("引き分け");
+
+    return ;
+
 }

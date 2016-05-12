@@ -57,7 +57,11 @@ public:
             board.pass();
             return;
         }
-
+        
+        //undo用のpointが来た場合はスルー
+        if(point.x == -1 && point.y == -1) throw UndoException();
+            
+        
         if(!board.move(point))
         {
             cout << "そこには置けません" << endl;

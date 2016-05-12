@@ -33,7 +33,7 @@ public:
     virtual bool init();
     void initUpdate(const Board &board);
     void update(const Board &board);
-    
+    void gameOver(const Board &board);
     CREATE_FUNC(BoardView);
 };
 

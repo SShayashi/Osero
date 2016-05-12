@@ -92,6 +92,13 @@ bool GameScene::init()
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
     this->_boardViewLayer->initUpdate(*_board);
     
+    //undoイベントの受け取り
+    Director::getInstance()->getEventDispatcher()->addCustomEventListener("undo",[this](cocos2d::EventCustom *event)
+    {
+        this->putDisc(Reversi::Point(-1,-1));
+
+    });
+    
     return true;
 }
 
@@ -106,6 +113,7 @@ int GameScene::putDisc(Reversi::Point p)
             _board->undo();
             _board->undo();
         }while (_board->getMovablePos().empty());
+        this->_boardViewLayer->update(*_board);
         return 0;
     }
     catch(NotMoveException& e)
@@ -118,6 +126,9 @@ int GameScene::putDisc(Reversi::Point p)
     }
     catch(GameOverException& e)
     {
+        this->_boardViewLayer->update(*_board);
+        this->_boardViewLayer->gameOver(*_board);
+        //プレイヤーの交代
         cout << "game finish " << endl;
         cout << "黒石" << _board->countDisc(BLACK) << "  ";
         cout << "白石" << _board->countDisc(WHITE) << endl;
