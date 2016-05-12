@@ -12,6 +12,8 @@
 #include "ui/CocosGUI.h"
 #include "GUIcomponents.hpp"
 
+#include <iostream>
+
 #define ORIGINAL_TILE_WIDTH 128
 
 #define BOARD_OFFSET 20
@@ -53,8 +55,63 @@ bool BoardView::init(){
 /** Modelを参照して画面へ描画
  *
  */
-void BoardView::update(const Board &board){
+void BoardView::initUpdate(const Board &board){
     
+    _tiles.clear();
+    _renderTexture->begin();
+    //8*8のマスを作成
+    for(int y = 1; y <= 8; y++) {
+        for(int x = 1; x <= 8; x++){
+            auto tile {BoardTile::create()};
+            auto pos = BoardTile::convertToStageSpace(Vec2(x,y));
+            tile->setPosition(pos);
+            tile->setBoardPoint(Reversi::Point(x,y));
+            tile->setColor(board.getColor(Reversi::Point(x,y)));
+            _tableNode->addChild(tile);
+            
+            _tiles.pushBack(tile);
+            tile->visit();
+            tile->retain();
+        }
+    }
+    
+    _renderTexture->end();
+    return ;
+}
+
+void BoardView::update(const Board &board)
+{
+    
+    std::cout << "現在のターンは(0が白　1が黒)";
+    std::cout << board.getCurrentColor() << std::endl;
+    
+    std::cout << "  abcdefgh " << std::endl;
+    for(int y=1; y<=8; y++)
+    {
+        std::cout << " " << y;
+        for(int x=1; x<=8; x++)
+        {
+            switch(board.getColor(Reversi::Point(x, y)))
+            {
+                case BLACK:
+                    std::cout << "●";
+                    break;
+                case WHITE:
+                    std::cout << "○";
+                    break;
+                default:
+                    std::cout << "□";
+                    break;
+            }
+        }
+        std::cout << std::endl;
+    }
+    
+    std::cout << "黒石" << board.countDisc(BLACK) << " ";
+    std::cout << "白石" << board.countDisc(WHITE) << " ";
+    std::cout << "空マス" << board.countDisc(EMPTY) << std::endl << std::endl;
+    
+    _tiles.clear();
     _renderTexture->begin();
     //8*8のマスを作成
     for(int y = 1; y <= 8; y++) {

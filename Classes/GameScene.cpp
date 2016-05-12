@@ -16,6 +16,7 @@ GameScene::GameScene()
 {
     _board      = nullptr;
     _boardViewLayer = nullptr;
+    
 }
 GameScene::~GameScene()
 {
@@ -48,6 +49,8 @@ bool GameScene::init()
     {
         player[0].reset(new HumanPlayer());
         player[1].reset(new HumanPlayer());
+        player[0]->retain();
+        player[1]->retain();
     }else if(Utility::getInstance()->getPreceding() == Utility::PRECEDING::HUMAN) {
         player[0].reset(new HumanPlayer());
         player[1].reset(new AIPlayer());
@@ -87,6 +90,7 @@ bool GameScene::init()
     
     //ゲームのメインループへ
     this->_boardViewLayer->update(*_board);
+    _current_player = 0;
     
     return true;
 }
@@ -146,6 +150,10 @@ int GameScene::putDisc(Reversi::Point p)
         }while (_board->getMovablePos().empty());
         return 0;
     }
+    catch(NotMoveException& e)
+    {
+        return 0;
+    }
     catch(ExitException& e)
     {
         return 0;
@@ -159,9 +167,9 @@ int GameScene::putDisc(Reversi::Point p)
         return 0;
     }
     
-    //プレイヤーの交代
+//    //プレイヤーの交代
     this->_boardViewLayer->update(*_board);
-    _current_player = ++_current_player % 2;
+    _current_player = ++_current_player % 2 ;
 
     return 0;
 }

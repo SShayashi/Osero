@@ -24,7 +24,7 @@ using namespace std;
 class GameScene : public cocos2d::Layer
 {
 private:
-    auto_ptr<Player> player[2];
+    unique_ptr<Player> player[2];
     int _current_player;
 
     //Model

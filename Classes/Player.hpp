@@ -10,11 +10,12 @@
 #define Player_h
 
 #include "AI.hpp"
+#include "cocos2d.h"
 
 using namespace std;
 using namespace Reversi;
 
-class Player
+class Player :public cocos2d::Ref
 {
 public:
     virtual void onTurn(Board& board)=0;
@@ -22,6 +23,11 @@ public:
 };
 
 class UndoException
+{
+    
+};
+
+class NotMoveException
 {
     
 };
@@ -55,6 +61,7 @@ public:
         if(!board.move(point))
         {
             cout << "そこには置けません" << endl;
+            throw NotMoveException();
         }
         
         if(board.isGameOver()) throw GameOverException();

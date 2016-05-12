@@ -25,14 +25,8 @@ private:
     cocos2d::Size winSize {};
 public:
     virtual bool init();
+    void initUpdate(const Board &board);
     void update(const Board &board);
-    
-    BoardTile* findTileFromPoint(cocos2d::Vec2& touchpos)
-    {
-        
-        return nullptr;
-        
-    }
     
     CREATE_FUNC(BoardView);
 };
