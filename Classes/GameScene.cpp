@@ -14,8 +14,6 @@
 
 GameScene::GameScene()
 {
-    _current_player = 0;
-    _gameoverFlag   = 0;
     _board          = nullptr;
     _boardViewLayer = nullptr;
     player[0]       = nullptr;
@@ -47,7 +45,9 @@ bool GameScene::init()
     {
         return false;
     }
-    
+    _current_player = 0;
+    _gameoverFlag   = 0;
+
     //Modelの初期化
     _board = new Board();
     
