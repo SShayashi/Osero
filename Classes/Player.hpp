@@ -18,7 +18,6 @@ using namespace Reversi;
 class Player :public cocos2d::Ref
 {
 public:
-    virtual void onTurn(Board& board)=0;
     virtual void onTurn(Board& board,Reversi::Point p)=0;
 };
 
@@ -45,10 +44,7 @@ class GameOverException
 class HumanPlayer : public Player
 {
 public:
-    void onTurn(Board& board)
-    {
-        return ;
-    }
+
     void onTurn(Board& board,Reversi::Point point)
     {
         if(board.getMovablePos().empty())
@@ -91,18 +87,13 @@ public:
         delete Ai;
     }
     
-    
-    void onTurn(Board& board)
+    void onTurn(Board& board,Reversi::Point p)
     {
         cout << "コンピュータが思考中";
         Ai->move(board);
         cout << "完了" << endl;
         if(board.isGameOver()) throw GameOverException();
-    }
-    
-    void onTurn(Board& board,Reversi::Point p)
-    {
-        
+   
     }
 };
 

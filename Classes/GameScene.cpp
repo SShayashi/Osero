@@ -85,6 +85,10 @@ bool GameScene::init()
                 auto p = tile->getBoardPoint();
                 CCLOG("tilep: x:%d y:%d",p.x,p.y);
                 this->putDisc(p);
+                
+                //シングルモードなら再度ターンを回す
+                if(Utility::getInstance()->getGameMode() == Utility::GAME_MODE::SINGLE)
+                    this->putDisc(p);
                 return true;
             }
         }
@@ -92,6 +96,10 @@ bool GameScene::init()
     };
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
     this->_boardViewLayer->initUpdate(*_board);
+    
+    //CPUからの場合は一度相手にターンを渡す
+    if(Utility::getInstance()->getPreceding() == Utility::PRECEDING::CPU)
+        this->putDisc(Reversi::Point(0,0));
     
     //undoイベントの受け取り
     Director::getInstance()->getEventDispatcher()->addCustomEventListener("undo",[this](cocos2d::EventCustom *event)
@@ -144,6 +152,7 @@ int GameScene::putDisc(Reversi::Point p)
     //プレイヤーの交代
     this->_boardViewLayer->update(*_board);
     _current_player = ++_current_player % 2 ;
+    
 
     return 0;
 }
