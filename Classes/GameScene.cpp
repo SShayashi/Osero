@@ -14,14 +14,19 @@
 
 GameScene::GameScene()
 {
-    _board      = nullptr;
+    _board          = nullptr;
     _boardViewLayer = nullptr;
+    player[0]       = nullptr;
+    player[1]       = nullptr;
+    
     
 }
 GameScene::~GameScene()
 {
     delete _board;
     CC_SAFE_RELEASE_NULL(_boardViewLayer);
+    CC_SAFE_RELEASE_NULL(player[0]);
+    CC_SAFE_RELEASE_NULL(player[1]);
 }
 
 //元main
@@ -62,7 +67,7 @@ bool GameScene::init()
     
     //viewの初期設定
     auto boardlayer = BoardView::create();
-    _boardViewLayer = boardlayer;
+    this->setBoardViewLayer(boardlayer);
     this->addChild(_boardViewLayer);
     
     auto listener = EventListenerTouchOneByOne::create();

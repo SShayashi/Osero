@@ -30,7 +30,7 @@ private:
     //Model
     Board *_board;
     //View
-    BoardView *_boardViewLayer {};
+    CC_SYNTHESIZE_RETAIN(BoardView*, _boardViewLayer, BoardViewLayer);
     
     GameScene();
     virtual ~GameScene();

@@ -16,7 +16,7 @@
 class BoardView : public cocos2d::Layer
 {
 private:
-    CC_SYNTHESIZE_RETAIN(cocos2d::Sprite*, _background, BackGround);
+    CC_SYNTHESIZE_RETAIN(cocos2d::Node*, _boardLayer, BoardLayer);
     CC_SYNTHESIZE_RETAIN(cocos2d::Node*, _tableNode, TableNode);
     CC_SYNTHESIZE_RETAIN(cocos2d::RenderTexture*, _renderTexture, RenderTexture);
     CC_SYNTHESIZE(cocos2d::Vector<BoardTile *>, _tiles, Tiles);
@@ -24,6 +24,8 @@ private:
     cocos2d::Vec2 _boardpos;
     cocos2d::Size winSize {};
 public:
+    BoardView();
+    virtual ~BoardView();
     virtual bool init();
     void initUpdate(const Board &board);
     void update(const Board &board);

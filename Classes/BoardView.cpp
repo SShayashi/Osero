@@ -11,6 +11,7 @@
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "GUIcomponents.hpp"
+#include "TitleScene.hpp"
 
 #include <iostream>
 
@@ -22,6 +23,19 @@
 #define BOARD_TILE_WIDTH 75
 using namespace cocos2d;
 
+BoardView::BoardView()
+{
+    _tableNode     = nullptr;
+    _renderTexture = nullptr;
+    _boardLayer    = nullptr;
+}
+BoardView::~BoardView()
+{
+    CC_SAFE_RELEASE_NULL(_tableNode);
+    CC_SAFE_RELEASE_NULL(_renderTexture);
+    CC_SAFE_RELEASE_NULL(_boardLayer);
+}
+
 bool BoardView::init(){
     if ( !Layer::init() )
     {
@@ -31,7 +45,8 @@ bool BoardView::init(){
     //背景
     // titleLayerの読み込み
     auto boardLayer = CSLoader::getInstance()->createNode("BoardLayer.csb");
-    this->addChild(boardLayer);
+    this->setBoardLayer(boardLayer);
+    this->addChild(_boardLayer);
     
     //レンダリング用のテクスチャの初期化
     auto renderTexture = RenderTexture::create(winSize.width, winSize.height);
@@ -41,11 +56,20 @@ bool BoardView::init(){
     this->addChild(_renderTexture);
 
     auto homeBtn = boardLayer->getChildByName<ui::Button*>("home");
+    homeBtn->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
+        if (type == ui::Widget::TouchEventType::ENDED) {
+            auto title = Title::createScene();
+            auto transition = TransitionCrossFade::create(0.5, title);
+            Director::getInstance()->replaceScene(transition);
+            
+        }
+    });
+    
     auto undoBtn  = boardLayer->getChildByName<ui::Button*>("undo");
     auto tableNode = boardLayer->getChildByName("table");
     //位置をタイル一枚分下にずらす
-    _tableNode = tableNode;
-    _tableNode->setPosition(_tableNode->getPosition() - Vec2(BOARD_TILE_WIDTH,BOARD_TILE_WIDTH));
+    tableNode->setPosition(tableNode->getPosition() - Vec2(BOARD_TILE_WIDTH,BOARD_TILE_WIDTH));
+    setTableNode(tableNode);
     
 
 
