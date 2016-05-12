@@ -10,7 +10,6 @@
 #define Player_h
 
 #include "AI.hpp"
-#include "cocos2d.h"
 
 using namespace std;
 using namespace Reversi;
@@ -37,7 +36,7 @@ class GameOverException
     
 };
 
-class HumanPlayer : public Player,public cocos2d::Node
+class HumanPlayer : public Player
 {
 public:
     void onTurn(Board& board)
@@ -49,39 +48,16 @@ public:
         if(board.getMovablePos().empty())
         {
             cout << "あなたはパスです." << endl;
-            //イベント発信側
-            auto event = cocos2d::EventCustom("human_pass");
-            auto voice = cocos2d::Value("パスです");
-            event.setUserData(&voice);
-            getEventDispatcher()->dispatchEvent(&event);
-            
             board.pass();
             return;
         }
-        
-        while (true) {
-//
-//            if(in == "U" || in == "u") throw UndoException();
-//            if(in == "X" || in == "x") throw ExitException();
-            
-//            Reversi::Point p;
-//            try {
-//                p = Reversi::Point(in);
-//            } catch (invalid_argument& e) {
-//                cout << "正しい形式で入力してください" << endl;
-//                continue;
-//            }
-            
-            if(!board.move(point))
-            {
-                cout << "そこには置けません" << endl;
-            }
-            
-            if(board.isGameOver()) throw GameOverException();
-            
-            break;
-        }
 
+        if(!board.move(point))
+        {
+            cout << "そこには置けません" << endl;
+        }
+        
+        if(board.isGameOver()) throw GameOverException();
     }
 };
 
