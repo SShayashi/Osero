@@ -9,8 +9,7 @@
 #include "Reversi.h"
 #include "Board.hpp"
 #include "cocostudio/CocoStudio.h"
-#include "ui/CocosGUI.h"
-#include "GUIcomponents.hpp"
+
 #include "TitleScene.hpp"
 
 #include <iostream>
@@ -28,12 +27,16 @@ BoardView::BoardView()
     _tableNode     = nullptr;
     _renderTexture = nullptr;
     _boardLayer    = nullptr;
+    _whiteDiscNumLabel = nullptr;
+    _blackDiscNumLabel = nullptr;
 }
 BoardView::~BoardView()
 {
     CC_SAFE_RELEASE_NULL(_tableNode);
     CC_SAFE_RELEASE_NULL(_renderTexture);
     CC_SAFE_RELEASE_NULL(_boardLayer);
+    CC_SAFE_RELEASE_NULL(_whiteDiscNumLabel);
+    CC_SAFE_RELEASE_NULL(_blackDiscNumLabel);
 }
 
 bool BoardView::init(){
@@ -56,6 +59,12 @@ bool BoardView::init(){
     this->addChild(_renderTexture);
 
     auto homeBtn = boardLayer->getChildByName<ui::Button*>("home");
+    auto undoBtn  = boardLayer->getChildByName<ui::Button*>("undo");
+    auto whiteDiscNumLabel = boardLayer->getChildByName<ui::Text*>("white_disc_num");
+    auto blackDiscNumLabel = boardLayer->getChildByName<ui::Text*>("black_disc_num");
+    auto tableNode = boardLayer->getChildByName("table");
+    
+    
     homeBtn->addTouchEventListener([this](Ref* sender, ui::Widget::TouchEventType type) {
         if (type == ui::Widget::TouchEventType::ENDED) {
             auto title = Title::createScene();
@@ -65,8 +74,10 @@ bool BoardView::init(){
         }
     });
     
-    auto undoBtn  = boardLayer->getChildByName<ui::Button*>("undo");
-    auto tableNode = boardLayer->getChildByName("table");
+    
+    this->setBlackDiscNumLabel(blackDiscNumLabel);
+    this->setWhiteDiscNumLabel(whiteDiscNumLabel);
+    
     //位置をタイル一枚分下にずらす
     tableNode->setPosition(tableNode->getPosition() - Vec2(BOARD_TILE_WIDTH,BOARD_TILE_WIDTH));
     setTableNode(tableNode);
@@ -80,6 +91,15 @@ bool BoardView::init(){
  *
  */
 void BoardView::initUpdate(const Board &board){
+    
+    //枚数更新
+    _blackDiscNumLabel->setString(std::to_string(board.countDisc(BLACK)));
+    _whiteDiscNumLabel->setString(std::to_string(board.countDisc(WHITE)));
+    
+    if(board.getCurrentColor() == -1)
+        _boardLayer->getChildByName<ui::Text*>("turn")->setString("白の\nターン");
+    else
+        _boardLayer->getChildByName<ui::Text*>("turn")->setString("黒の\nターン");
     
     _tiles.clear();
     //8*8のマスを作成
@@ -135,7 +155,13 @@ void BoardView::update(const Board &board)
     std::cout << "白石" << board.countDisc(WHITE) << " ";
     std::cout << "空マス" << board.countDisc(EMPTY) << std::endl << std::endl;
     
+    _blackDiscNumLabel->setString(std::to_string(board.countDisc(BLACK)));
+    _whiteDiscNumLabel->setString(std::to_string(board.countDisc(WHITE)));
 
+    if(board.getCurrentColor() == -1)
+        _boardLayer->getChildByName<ui::Text*>("turn")->setString("白の\nターン");
+    else
+        _boardLayer->getChildByName<ui::Text*>("turn")->setString("黒の\nターン");
     
     //8*8のマスを作成
     for(int y = 1; y <= 8; y++) {

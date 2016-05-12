@@ -89,6 +89,39 @@
             <PrePosition X="0.0313" Y="0.2201" />
             <PreSize X="0.0000" Y="0.0000" />
           </AbstractNodeData>
+          <AbstractNodeData Name="white_disc_num" ActionTag="2055761446" Tag="11" IconVisible="False" LeftMargin="154.0000" RightMargin="474.0000" TopMargin="1004.5000" BottomMargin="108.5000" FontSize="20" LabelText="0" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="12.0000" Y="23.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="160.0000" Y="120.0000" />
+            <Scale ScaleX="1.4489" ScaleY="2.1972" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.2500" Y="0.1056" />
+            <PreSize X="0.0188" Y="0.0202" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="black_disc_num" ActionTag="1212142939" Tag="12" IconVisible="False" LeftMargin="454.0000" RightMargin="174.0000" TopMargin="1004.5000" BottomMargin="108.5000" FontSize="20" LabelText="0" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+            <Size X="12.0000" Y="23.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="460.0000" Y="120.0000" />
+            <Scale ScaleX="1.4489" ScaleY="2.1972" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.7188" Y="0.1056" />
+            <PreSize X="0.0188" Y="0.0202" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="turn" ActionTag="-1669896326" Tag="13" IconVisible="False" LeftMargin="290.5000" RightMargin="290.5000" TopMargin="913.0000" BottomMargin="177.0000" FontSize="20" LabelText="○の&#xA;ターン	" HorizontalAlignmentType="HT_Center" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ShadowEnabled="True" ctype="TextObjectData">
+            <Size X="59.0000" Y="46.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="320.0000" Y="200.0000" />
+            <Scale ScaleX="1.4489" ScaleY="2.1972" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.5000" Y="0.1761" />
+            <PreSize X="0.0922" Y="0.0405" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
         </Children>
       </ObjectData>
     </Content>
