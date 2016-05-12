@@ -73,8 +73,8 @@ bool GameScene::init()
         for (const auto& tile : itr)
         {
             //相対位置を取得する
-            auto rerativePos = _boardViewLayer->getTableNode()->convertToNodeSpace(touchPoint);
-            if(tile->getBoundingBox().containsPoint(rerativePos))
+//            auto rerativePos = _boardViewLayer->getTableNode()->convertToNodeSpace(touchPoint);
+            if(tile->getBoundingBox().containsPoint(touchPoint))
             {
                 auto p = tile->getBoardPoint();
                 CCLOG("tilep: x:%d y:%d",p.x,p.y);
@@ -89,7 +89,7 @@ bool GameScene::init()
     
     
     //ゲームのメインループへ
-    this->_boardViewLayer->update(*_board);
+    this->_boardViewLayer->initUpdate(*_board);
     _current_player = 0;
     
     return true;

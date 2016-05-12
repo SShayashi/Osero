@@ -58,24 +58,24 @@ bool BoardView::init(){
 void BoardView::initUpdate(const Board &board){
     
     _tiles.clear();
-    _renderTexture->begin();
     //8*8のマスを作成
     for(int y = 1; y <= 8; y++) {
         for(int x = 1; x <= 8; x++){
+            _renderTexture->begin();
+            
             auto tile {BoardTile::create()};
             auto pos = BoardTile::convertToStageSpace(Vec2(x,y));
-            tile->setPosition(pos);
+            tile->setPosition(_tableNode->getPosition() + pos);
             tile->setBoardPoint(Reversi::Point(x,y));
             tile->setColor(board.getColor(Reversi::Point(x,y)));
-            _tableNode->addChild(tile);
             
             _tiles.pushBack(tile);
             tile->visit();
+            _renderTexture->end();
             tile->retain();
+
         }
     }
-    
-    _renderTexture->end();
     return ;
 }
 
@@ -86,7 +86,7 @@ void BoardView::update(const Board &board)
     std::cout << board.getCurrentColor() << std::endl;
     
     std::cout << "  abcdefgh " << std::endl;
-    for(int y=1; y<=8; y++)
+    for(int y=8; y>=1; y--)
     {
         std::cout << " " << y;
         for(int x=1; x<=8; x++)
@@ -111,24 +111,31 @@ void BoardView::update(const Board &board)
     std::cout << "白石" << board.countDisc(WHITE) << " ";
     std::cout << "空マス" << board.countDisc(EMPTY) << std::endl << std::endl;
     
-    _tiles.clear();
-    _renderTexture->begin();
+
+    
     //8*8のマスを作成
     for(int y = 1; y <= 8; y++) {
         for(int x = 1; x <= 8; x++){
+            auto n =(y-1)*8 + x-1;
+            //色の変更がない場合はスルー
+            if (_tiles.at(n)->getColor() == board.getColor(Reversi::Point(x,y)))
+                continue;
+            
+            _renderTexture->begin();
             auto tile {BoardTile::create()};
             auto pos = BoardTile::convertToStageSpace(Vec2(x,y));
-            tile->setPosition(pos);
+            tile->setPosition(_tableNode->getPosition() + pos);
             tile->setBoardPoint(Reversi::Point(x,y));
             tile->setColor(board.getColor(Reversi::Point(x,y)));
-            _tableNode->addChild(tile);
-            
-            _tiles.pushBack(tile);
+//            _tableNode->addChild(tile);
+            _tiles.replace(n,tile);
             tile->visit();
+            _renderTexture->end();
             tile->retain();
+            
         }
     }
     
-    _renderTexture->end();
+
     return ;
 }
