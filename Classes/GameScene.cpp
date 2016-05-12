@@ -14,6 +14,7 @@
 
 GameScene::GameScene()
 {
+    _current_player = 0;
     _board          = nullptr;
     _boardViewLayer = nullptr;
     player[0]       = nullptr;
@@ -54,8 +55,6 @@ bool GameScene::init()
     {
         player[0].reset(new HumanPlayer());
         player[1].reset(new HumanPlayer());
-        player[0]->retain();
-        player[1]->retain();
     }else if(Utility::getInstance()->getPreceding() == Utility::PRECEDING::HUMAN) {
         player[0].reset(new HumanPlayer());
         player[1].reset(new AIPlayer());
@@ -63,6 +62,8 @@ bool GameScene::init()
         player[0].reset(new AIPlayer());
         player[1].reset(new HumanPlayer());
     }
+    player[0]->retain();
+    player[1]->retain();
     
     
     //viewの初期設定
@@ -78,7 +79,6 @@ bool GameScene::init()
         for (const auto& tile : itr)
         {
             //相対位置を取得する
-//            auto rerativePos = _boardViewLayer->getTableNode()->convertToNodeSpace(touchPoint);
             if(tile->getBoundingBox().containsPoint(touchPoint))
             {
                 auto p = tile->getBoardPoint();
@@ -90,56 +90,9 @@ bool GameScene::init()
         return false;
     };
     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
-
-    
-    
-    //ゲームのメインループへ
     this->_boardViewLayer->initUpdate(*_board);
-    _current_player = 0;
     
     return true;
-}
-
-
-
-int GameScene::onPlay(){
-    
-//    _current_player = 0;
-//    _boardViewLayer->update(*_board);
-//    
-//    while (true) {
-//        //ボートへ反映
-//        _boardViewLayer->update(*_board);
-//        
-//        try {
-//            player[_current_player]->onTurn(*_board);
-//        } catch (UndoException& e)
-//        {
-//            do
-//            {
-//                _board->undo();
-//                _board->undo();
-//            }while (_board->getMovablePos().empty());
-//            {
-//                continue;
-//            }
-//        }
-//        catch(ExitException& e)
-//        {
-//            return 0;
-//        }
-//        catch(GameOverException& e)
-//        {
-//            cout << "game finish " << endl;
-//            cout << "黒石" << _board->countDisc(BLACK) << "  ";
-//            cout << "白石" << _board->countDisc(WHITE) << endl;
-//            
-//            return 0;
-//        }
-//        
-//        //プレイヤーの交代
-//        _current_player = ++_current_player % 2;
-//    }
 }
 
 int GameScene::putDisc(Reversi::Point p)
@@ -172,7 +125,7 @@ int GameScene::putDisc(Reversi::Point p)
         return 0;
     }
     
-//    //プレイヤーの交代
+    //プレイヤーの交代
     this->_boardViewLayer->update(*_board);
     _current_player = ++_current_player % 2 ;
 
