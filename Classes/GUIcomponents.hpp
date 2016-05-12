@@ -57,10 +57,14 @@ public:
      *
      */
     void setColor(const Color color);
-    
+    Color getColor()
+    {
+        return _color;
+    }
     CREATE_FUNC(BoardTile);
     virtual bool init();
 private:
+    Color _color;
     CC_SYNTHESIZE_RETAIN(Sprite*, _disc, Disc);
     CC_SYNTHESIZE(BOARD_STATE, _boardState, BoardState);
     CC_SYNTHESIZE(Reversi::Point, _boardPoint, BoardPoint);

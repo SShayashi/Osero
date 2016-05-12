@@ -16,7 +16,7 @@ bool BoardTile::init()
         return false;
     }
     _boardState = BOARD_STATE::NONE;
-    
+    _color = EMPTY;
     return true;
 }
 
@@ -26,6 +26,7 @@ void BoardTile::setColor(Color color)
     switch (color) {
         case WHITE:
         {
+            _color = WHITE;
             Sprite* disc {Sprite::create("s.png")};
             disc->setPosition(this->getContentSize()/2);
             this->addChild(disc);
@@ -34,6 +35,7 @@ void BoardTile::setColor(Color color)
         }
         case BLACK:
         {
+            _color = BLACK;
             Sprite* disc {Sprite::create("k.png")};
             disc->setPosition(this->getContentSize()/2);
             this->addChild(disc);
