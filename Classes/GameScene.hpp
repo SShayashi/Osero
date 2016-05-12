@@ -26,6 +26,7 @@ class GameScene : public cocos2d::Layer
 private:
     unique_ptr<Player> player[2];
     int _current_player;
+    int _gameoverFlag;
 
     //Model
     Board *_board;

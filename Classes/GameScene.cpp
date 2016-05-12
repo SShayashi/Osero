@@ -15,6 +15,7 @@
 GameScene::GameScene()
 {
     _current_player = 0;
+    _gameoverFlag   = 0;
     _board          = nullptr;
     _boardViewLayer = nullptr;
     player[0]       = nullptr;
@@ -104,6 +105,7 @@ bool GameScene::init()
 
 int GameScene::putDisc(Reversi::Point p)
 {
+    if(_gameoverFlag == 1) return 0;
     try {
         player[_current_player]->onTurn(*_board,p);
     } catch (UndoException& e)
@@ -128,6 +130,9 @@ int GameScene::putDisc(Reversi::Point p)
     {
         this->_boardViewLayer->update(*_board);
         this->_boardViewLayer->gameOver(*_board);
+        this->_gameoverFlag = 1;
+        //タッチできないようにリスナーの停止
+//        this->getEventDispatcher()->removeEventListenersForType(EventListener::Type::TOUCH_ALL_AT_ONCE);
         //プレイヤーの交代
         cout << "game finish " << endl;
         cout << "黒石" << _board->countDisc(BLACK) << "  ";
