@@ -3,8 +3,6 @@
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
-        <Project Name="BoardLayer.csd" Type="Layer" />
-        <Project Name="TitleLayer.csd" Type="Layer" />
         <Folder Name="Res">
           <Image Name="backpaper.jpg" />
           <Image Name="backpaper01.png" />
@@ -16,6 +14,8 @@
           <Image Name="table.jpg" />
           <Image Name="undo.png" />
         </Folder>
+        <Project Name="BoardLayer.csd" Type="Layer" />
+        <Project Name="TitleLayer.csd" Type="Layer" />
       </RootFolder>
     </Group>
   </SolutionFolder>
