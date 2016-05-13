@@ -23,6 +23,7 @@ private:
     CC_SYNTHESIZE_RETAIN(cocos2d::RenderTexture*, _renderTexture, RenderTexture);
     CC_SYNTHESIZE_RETAIN(cocos2d::ui::Text *, _blackDiscNumLabel, BlackDiscNumLabel);
     CC_SYNTHESIZE_RETAIN(cocos2d::ui::Text *, _whiteDiscNumLabel, WhiteDiscNumLabel);
+    CC_SYNTHESIZE_RETAIN(cocos2d::ui::Text *, _cpuMessageLabel, CpuMessageLabel);
     CC_SYNTHESIZE(cocos2d::Vector<BoardTile *>, _tiles, Tiles);
     CC_SYNTHESIZE(cocos2d::Vector<cocos2d::Sprite *>, _discs, Discs);
     cocos2d::Vec2 _boardpos;

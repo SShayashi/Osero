@@ -29,6 +29,7 @@ BoardView::BoardView()
     _boardLayer    = nullptr;
     _whiteDiscNumLabel = nullptr;
     _blackDiscNumLabel = nullptr;
+    _cpuMessageLabel   = nullptr;
 }
 BoardView::~BoardView()
 {
@@ -37,6 +38,7 @@ BoardView::~BoardView()
     CC_SAFE_RELEASE_NULL(_boardLayer);
     CC_SAFE_RELEASE_NULL(_whiteDiscNumLabel);
     CC_SAFE_RELEASE_NULL(_blackDiscNumLabel);
+    CC_SAFE_RELEASE_NULL(_cpuMessageLabel);
 }
 
 bool BoardView::init(){
@@ -79,6 +81,24 @@ bool BoardView::init(){
             Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("undo");
         }
     });
+    
+    Director::getInstance()->getEventDispatcher()->addCustomEventListener
+    ("thinking_start",[this](cocos2d::EventCustom *event)
+    {
+        auto text = cocos2d::ui::Text::create("CPUのターン！", "Arial", 30);
+        text->setTag(0);
+        text->setPosition(winSize/2);
+        text->setTextHorizontalAlignment(cocos2d::TextHAlignment::CENTER);
+        this->setCpuMessageLabel(text);
+        this->addChild(_cpuMessageLabel);
+        
+    });
+    
+    Director::getInstance()->getEventDispatcher()->addCustomEventListener
+    ("thinking_done",[this](cocos2d::EventCustom *event)
+     {
+         this->removeChildByTag(0);
+     });
     
     
     this->setBlackDiscNumLabel(blackDiscNumLabel);
