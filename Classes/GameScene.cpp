@@ -14,6 +14,7 @@
 
 GameScene::GameScene()
 {
+    _current_player = 0;
     _board          = nullptr;
     _boardViewLayer = nullptr;
     player[0]       = nullptr;
@@ -24,9 +25,11 @@ GameScene::GameScene()
 GameScene::~GameScene()
 {
     delete _board;
+    _board = nullptr;
     CC_SAFE_RELEASE_NULL(_boardViewLayer);
     CC_SAFE_RELEASE_NULL(player[0]);
     CC_SAFE_RELEASE_NULL(player[1]);
+    Director::getInstance()->getEventDispatcher()->removeCustomEventListeners("undo");
 }
 
 //元main
@@ -54,17 +57,17 @@ bool GameScene::init()
     //先手・後手の設定
     if(Utility::getInstance()->getGameMode() == Utility::GAME_MODE::MULTI)
     {
-        player[0].reset(new HumanPlayer());
-        player[1].reset(new HumanPlayer());
+        this->player[0].reset(new HumanPlayer());
+        this->player[1].reset(new HumanPlayer());
     }else if(Utility::getInstance()->getPreceding() == Utility::PRECEDING::HUMAN) {
-        player[0].reset(new HumanPlayer());
-        player[1].reset(new AIPlayer());
+        this->player[0].reset(new HumanPlayer());
+        this->player[1].reset(new AIPlayer());
     }else{
-        player[0].reset(new AIPlayer());
-        player[1].reset(new HumanPlayer());
+        this->player[0].reset(new AIPlayer());
+        this->player[1].reset(new HumanPlayer());
     }
-    player[0]->retain();
-    player[1]->retain();
+    CC_SAFE_RETAIN(this->player[0]);
+    CC_SAFE_RETAIN(this->player[1]);
     
     
     //viewの初期設定
@@ -102,7 +105,7 @@ bool GameScene::init()
         this->putDisc(Reversi::Point(0,0));
     
     //undoイベントの受け取り
-    Director::getInstance()->getEventDispatcher()->addCustomEventListener("undo",[this](cocos2d::EventCustom *event)
+    Director::getInstance()->getEventDispatcher()->addCustomEventListener("undo",[&](cocos2d::EventCustom *event)
     {
         this->putDisc(Reversi::Point(-1,-1));
 
@@ -115,7 +118,7 @@ int GameScene::putDisc(Reversi::Point p)
 {
     if(_gameoverFlag == 1) return 0;
     try {
-        player[_current_player]->onTurn(*_board,p);
+        this->player[_current_player]->onTurn(*_board,p);
     } catch (UndoException& e)
     {
         do
