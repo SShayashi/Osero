@@ -90,10 +90,8 @@ public:
     void onTurn(Board& board,Reversi::Point p)
     {
         cout << "コンピュータが思考中";
-        cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("thinking_start");
         Ai->move(board);
         cout << "完了" << endl;
-        cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("thinking_done");
         if(board.isGameOver()) throw GameOverException();
    
     }

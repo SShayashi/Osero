@@ -39,6 +39,10 @@ BoardView::~BoardView()
     CC_SAFE_RELEASE_NULL(_whiteDiscNumLabel);
     CC_SAFE_RELEASE_NULL(_blackDiscNumLabel);
     CC_SAFE_RELEASE_NULL(_cpuMessageLabel);
+    Director::getInstance()->getEventDispatcher()->removeCustomEventListeners("thinking_start");
+    Director::getInstance()->getEventDispatcher()->removeCustomEventListeners("thinking_done");
+//    Director::getInstance()->getEventDispatcher()->removeEventListenersForType(EventListener::Type::CUSTOM);
+    
 }
 
 bool BoardView::init(){
@@ -85,7 +89,8 @@ bool BoardView::init(){
     Director::getInstance()->getEventDispatcher()->addCustomEventListener
     ("thinking_start",[this](cocos2d::EventCustom *event)
     {
-        auto text = cocos2d::ui::Text::create("CPUのターン！", "Arial", 30);
+//        auto text = cocos2d::ui::Text::create("CPUのターン！", "Arial", 30);
+        auto text = cocos2d::ui::Text::create("CPU TRUN","fonts/arial.ttf",50);
         text->setTag(0);
         text->setPosition(winSize/2);
         text->setTextHorizontalAlignment(cocos2d::TextHAlignment::CENTER);

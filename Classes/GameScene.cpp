@@ -153,7 +153,10 @@ int GameScene::putDisc(Reversi::Point p)
     }
     
     //プレイヤーの交代
+    cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("thinking_start");
     this->_boardViewLayer->update(*_board);
+    cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("thinking_done");
+    
     _current_player = ++_current_player % 2 ;
     
 
