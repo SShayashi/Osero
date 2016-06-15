@@ -29,7 +29,7 @@ BoardView::BoardView()
     _boardLayer    = nullptr;
     _whiteDiscNumLabel = nullptr;
     _blackDiscNumLabel = nullptr;
-    _cpuMessageLabel   = nullptr;
+    _systemMessageLabel   = nullptr;
 }
 BoardView::~BoardView()
 {
@@ -38,7 +38,7 @@ BoardView::~BoardView()
     CC_SAFE_RELEASE_NULL(_boardLayer);
     CC_SAFE_RELEASE_NULL(_whiteDiscNumLabel);
     CC_SAFE_RELEASE_NULL(_blackDiscNumLabel);
-    CC_SAFE_RELEASE_NULL(_cpuMessageLabel);
+    CC_SAFE_RELEASE_NULL(_systemMessageLabel);
     Director::getInstance()->getEventDispatcher()->removeCustomEventListeners("thinking_start");
     Director::getInstance()->getEventDispatcher()->removeCustomEventListeners("thinking_done");
 //    Director::getInstance()->getEventDispatcher()->removeEventListenersForType(EventListener::Type::CUSTOM);
@@ -71,7 +71,7 @@ bool BoardView::init(){
     text->setTextHorizontalAlignment(cocos2d::TextHAlignment::CENTER);
     text->setVisible(false);
     this->setCpuMessageLabel(text);
-    this->addChild(_cpuMessageLabel,1000);
+    this->addChild(_systemMessageLabel,1000);
     
     auto homeBtn = boardLayer->getChildByName<ui::Button*>("home");
     auto undoBtn  = boardLayer->getChildByName<ui::Button*>("undo");
@@ -99,14 +99,14 @@ bool BoardView::init(){
     ("thinking_start",[this](cocos2d::EventCustom *event)
     {
 //        auto text = cocos2d::ui::Text::create("CPUのターン！", "Arial", 30);
-        this->_cpuMessageLabel->setVisible(true);
+        this->_systemMessageLabel->setVisible(true);
         
     });
     
     Director::getInstance()->getEventDispatcher()->addCustomEventListener
     ("thinking_done",[this](cocos2d::EventCustom *event)
      {
-         this->_cpuMessageLabel->setVisible(false);
+         this->_systemMessageLabel->setVisible(false);
      });
     
     
@@ -233,7 +233,7 @@ void BoardView::gameOver(const Board &board)
         _boardLayer->getChildByName<ui::Text*>("turn")->setString("白の勝利");
     else
         _boardLayer->getChildByName<ui::Text*>("turn")->setString("引き分け");
-    this->_cpuMessageLabel->setVisible(false);
+    this->_systemMessageLabel->setVisible(false);
     
     return ;
 
