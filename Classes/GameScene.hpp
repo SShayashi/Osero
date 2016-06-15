@@ -27,7 +27,7 @@ private:
     unique_ptr<Player> player[2];
     int _current_player;
     int _gameoverFlag;
-
+    Reversi::Point _touchPoint;
     //Model
     Board *_board;
     //View
@@ -38,6 +38,7 @@ private:
 public:
     static cocos2d::Scene* createScene();
     virtual bool init();
+    void update(float delta);
     
     int onPlay();
     int putDisc(Reversi::Point p);

@@ -15,6 +15,7 @@
 GameScene::GameScene()
 {
     _current_player = 0;
+    _touchPoint     = Reversi::Point(10, 10);
     _board          = nullptr;
     _boardViewLayer = nullptr;
     player[0]       = nullptr;
@@ -85,13 +86,7 @@ bool GameScene::init()
             //相対位置を取得する
             if(tile->getBoundingBox().containsPoint(touchPoint))
             {
-                auto p = tile->getBoardPoint();
-                CCLOG("tilep: x:%d y:%d",p.x,p.y);
-                this->putDisc(p);
-                
-                //シングルモードなら再度ターンを回す
-                if(Utility::getInstance()->getGameMode() == Utility::GAME_MODE::SINGLE)
-                    this->putDisc(p);
+                this->_touchPoint = tile->getBoardPoint();
                 return true;
             }
         }
@@ -108,8 +103,12 @@ bool GameScene::init()
     Director::getInstance()->getEventDispatcher()->addCustomEventListener("undo",[&](cocos2d::EventCustom *event)
     {
         this->putDisc(Reversi::Point(-1,-1));
+        //おけない値を代入しているだけ
+        this->_touchPoint = Reversi::Point(10,10);
 
     });
+    
+    this->scheduleUpdate();
     
     return true;
 }
@@ -152,13 +151,15 @@ int GameScene::putDisc(Reversi::Point p)
         return 0;
     }
     
-    //プレイヤーの交代
-    cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("thinking_start");
-    this->_boardViewLayer->update(*_board);
-    cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("thinking_done");
-    
+
+    this->_boardViewLayer->update(*_board);    
     _current_player = ++_current_player % 2 ;
     
 
     return 0;
+}
+
+void GameScene::update(float delta){
+    this->putDisc(_touchPoint);
+    
 }
