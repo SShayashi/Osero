@@ -41,6 +41,7 @@ BoardView::~BoardView()
     CC_SAFE_RELEASE_NULL(_systemMessageLabel);
     Director::getInstance()->getEventDispatcher()->removeCustomEventListeners("thinking_start");
     Director::getInstance()->getEventDispatcher()->removeCustomEventListeners("thinking_done");
+    Director::getInstance()->getEventDispatcher()->removeCustomEventListeners("pass");
 //    Director::getInstance()->getEventDispatcher()->removeEventListenersForType(EventListener::Type::CUSTOM);
     
 }
@@ -99,6 +100,7 @@ bool BoardView::init(){
     ("thinking_start",[this](cocos2d::EventCustom *event)
     {
 //        auto text = cocos2d::ui::Text::create("CPUのターン！", "Arial", 30);
+        this->_systemMessageLabel->setString("CPU TURN");
         this->_systemMessageLabel->setVisible(true);
         
     });
@@ -107,6 +109,13 @@ bool BoardView::init(){
     ("thinking_done",[this](cocos2d::EventCustom *event)
      {
          this->_systemMessageLabel->setVisible(false);
+     });
+    
+    Director::getInstance()->getEventDispatcher()->addCustomEventListener
+    ("pass",[this](cocos2d::EventCustom *event)
+     {
+         this->_systemMessageLabel->setString("PASS");
+         this->_systemMessageLabel->setVisible(true);
      });
     
     

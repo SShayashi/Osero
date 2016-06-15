@@ -11,6 +11,7 @@
 
 #include "AI.hpp"
 #include "cocos2d.h"
+#include "Utility.hpp"
 
 using namespace std;
 using namespace Reversi;
@@ -47,11 +48,13 @@ public:
 
     void onTurn(Board& board,Reversi::Point point)
     {
-        cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("thinking_done");
+        if(Utility::getInstance()->getGameMode() == Utility::GAME_MODE::SINGLE)
+            cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("thinking_done");
         
         if(board.getMovablePos().empty())
         {
             cout << "あなたはパスです." << endl;
+            cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("pass");
             board.pass();
             return;
         }
@@ -65,8 +68,8 @@ public:
             cout << "そこには置けません" << endl;
             throw NotMoveException();
         }
-        
-        cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("thinking_start");
+        if(Utility::getInstance()->getGameMode() == Utility::GAME_MODE::SINGLE)
+            cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("thinking_start");
         
         if(board.isGameOver()) throw GameOverException();
     }
