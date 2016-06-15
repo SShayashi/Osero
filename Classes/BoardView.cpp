@@ -63,7 +63,16 @@ bool BoardView::init(){
     renderTexture->setPosition(Vec2(winSize.width/2, winSize.height/2));
     this->setRenderTexture(renderTexture);
     this->addChild(_renderTexture);
-
+    
+    //CPUが考え中のメッセージ
+    auto text = cocos2d::ui::Text::create("CPU TRUN","fonts/arial.ttf",50);
+    text->setTag(0);
+    text->setPosition(winSize/2);
+    text->setTextHorizontalAlignment(cocos2d::TextHAlignment::CENTER);
+    text->setVisible(false);
+    this->setCpuMessageLabel(text);
+    this->addChild(_cpuMessageLabel,1000);
+    
     auto homeBtn = boardLayer->getChildByName<ui::Button*>("home");
     auto undoBtn  = boardLayer->getChildByName<ui::Button*>("undo");
     auto whiteDiscNumLabel = boardLayer->getChildByName<ui::Text*>("white_disc_num");
@@ -90,19 +99,14 @@ bool BoardView::init(){
     ("thinking_start",[this](cocos2d::EventCustom *event)
     {
 //        auto text = cocos2d::ui::Text::create("CPUのターン！", "Arial", 30);
-        auto text = cocos2d::ui::Text::create("CPU TRUN","fonts/arial.ttf",50);
-        text->setTag(0);
-        text->setPosition(winSize/2);
-        text->setTextHorizontalAlignment(cocos2d::TextHAlignment::CENTER);
-        this->setCpuMessageLabel(text);
-        this->addChild(_cpuMessageLabel);
+        this->_cpuMessageLabel->setVisible(true);
         
     });
     
     Director::getInstance()->getEventDispatcher()->addCustomEventListener
     ("thinking_done",[this](cocos2d::EventCustom *event)
      {
-         this->removeChildByTag(0);
+         this->_cpuMessageLabel->setVisible(false);
      });
     
     
@@ -229,7 +233,8 @@ void BoardView::gameOver(const Board &board)
         _boardLayer->getChildByName<ui::Text*>("turn")->setString("白の勝利");
     else
         _boardLayer->getChildByName<ui::Text*>("turn")->setString("引き分け");
-
+    this->_cpuMessageLabel->setVisible(false);
+    
     return ;
 
 }

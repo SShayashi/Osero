@@ -47,6 +47,8 @@ public:
 
     void onTurn(Board& board,Reversi::Point point)
     {
+        cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("thinking_done");
+        
         if(board.getMovablePos().empty())
         {
             cout << "あなたはパスです." << endl;
@@ -63,6 +65,8 @@ public:
             cout << "そこには置けません" << endl;
             throw NotMoveException();
         }
+        
+        cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("thinking_start");
         
         if(board.isGameOver()) throw GameOverException();
     }
@@ -90,11 +94,14 @@ public:
     void onTurn(Board& board,Reversi::Point p)
     {
         cout << "コンピュータが思考中";
+        
         Ai->move(board);
+        
         cout << "完了" << endl;
         if(board.isGameOver()) throw GameOverException();
    
     }
+
 };
 
 
