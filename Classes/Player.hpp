@@ -48,8 +48,8 @@ public:
 
     void onTurn(Board& board,Reversi::Point point)
     {
-        if(Utility::getInstance()->getGameMode() == Utility::GAME_MODE::SINGLE)
-            cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("thinking_done");
+//        if(Utility::getInstance()->getGameMode() == Utility::GAME_MODE::SINGLE)
+        cocos2d::Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("thinking_done");
         
         if(board.getMovablePos().empty())
         {
