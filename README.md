@@ -3,8 +3,7 @@
 ## What is this?
 This is Reversi game made in cocos2d-x3.11.
 
-
-
+./image01.png
 ## Usage
 
 ### build
