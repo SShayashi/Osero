@@ -1,7 +1,9 @@
 # Osero
 
 ## What is this?
-Ocero game app made in cocos2d-x3.11.
+This is Reversi game made in cocos2d-x3.11.
+
+
 
 ## Usage
 
